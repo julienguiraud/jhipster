@@ -10,7 +10,7 @@
     "databaseType": "mongodb",
     "devDatabaseType": "mongodb",
     "prodDatabaseType": "mongodb",
-    "useCompass": true,
+    "useCompass": false,
     "buildTool": "maven",
     "frontendBuilder": "grunt",
     "javaVersion": "8"

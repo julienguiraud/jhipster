@@ -39,10 +39,6 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js', 'pom.xml'],
                 tasks: ['ngconstant:dev']
             },
-            compass: {
-                files: ['src/main/scss/**/*.{scss,sass}'],
-                tasks: ['compass:server']
-            },
             styles: {
                 files: ['src/main/webapp/assets/styles/**/*.css']
             },
@@ -73,9 +69,8 @@ module.exports = function (grunt) {
         },
         wiredep: {
             app: {
-                src: ['src/main/webapp/index.html',, 'src/main/scss/main.scss'],
-                exclude: [/angular-i18n/, /swagger-ui/],
-                ignorePath: /\.\.\/webapp\/bower_components\// // remove ../webapp/bower_components/ from paths of injected sass files
+                src: ['src/main/webapp/index.html'],
+                exclude: [/angular-i18n/, /swagger-ui/]
             },
             test: {
                 src: 'src/test/javascript/karma.conf.js',
@@ -233,27 +228,6 @@ module.exports = function (grunt) {
                     dest: '.tmp/spec',
                     ext: '.js'
                 }]
-            }
-        },
-        compass: {
-            options: {
-                sassDir: 'src/main/scss',
-                cssDir: 'src/main/webapp/assets/styles',
-                generatedImagesDir: '.tmp/assets/images/generated',
-                imagesDir: 'src/main/webapp/assets/images',
-                javascriptsDir: 'src/main/webapp/scripts',
-                fontsDir: 'src/main/webapp/assets/fonts',
-                importPath: 'src/main/webapp/bower_components',
-                httpImagesPath: '/assets/images',
-                httpGeneratedImagesPath: '/assets/images/generated',
-                httpFontsPath: '/assets/fonts',
-                relativeAssets: false
-            },
-            dist: {},
-            server: {
-                options: {
-                    debugInfo: true
-                }
             }
         },
         concat: {
@@ -424,13 +398,10 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'compass:server'
             ],
             test: [
-                'compass'
             ],
             dist: [
-                'compass:dist',
                 'imagemin',
                 'svgmin'
             ]

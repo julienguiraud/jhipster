@@ -33,7 +33,6 @@
     "load-grunt-tasks": "2.0.0",
     "grunt-karma": "0.10.1",
     "time-grunt": "1.0.0",
-    "grunt-contrib-compass": "1.0.1",
     "event-stream": "3.2.1",
     "jshint-stylish": "1.0.0",
     "karma-script-launcher": "0.1.0",
